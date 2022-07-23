@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/base/base_controller.dart';
 import 'package:sample_app_getx/core/theme/app_colors.dart';
+import 'package:sample_app_getx/core/theme/app_text_style.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
 import 'package:sample_app_getx/data/data_source/local_source.dart';
 import 'package:sample_app_getx/routes/app_routes.dart';
@@ -42,10 +42,7 @@ class SettingsController extends BaseController {
                     },
                     title: const Text(
                       "Русский",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500),
+                      style: AppTextStyles.checkoutOrderBranchesItemName,
                     ),
                     trailing: LocalSource.getInstance().getLocale() == 'ru'
                         ? SvgPicture.asset('assets/svg/ic_done.svg')
@@ -67,10 +64,7 @@ class SettingsController extends BaseController {
                     },
                     title: const Text(
                       "O'zbekcha",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500),
+                      style: AppTextStyles.checkoutOrderBranchesItemName,
                     ),
                     trailing: LocalSource.getInstance().getLocale() == 'uz'
                         ? SvgPicture.asset('assets/svg/ic_done.svg')
@@ -92,10 +86,7 @@ class SettingsController extends BaseController {
                     },
                     title: const Text(
                       "English",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500),
+                      style: AppTextStyles.checkoutOrderBranchesItemName,
                     ),
                     trailing: LocalSource.getInstance().getLocale() == 'en'
                         ? SvgPicture.asset('assets/svg/ic_done.svg')
@@ -108,30 +99,48 @@ class SettingsController extends BaseController {
         },
       );
 
-  Future showDialogFunction(BuildContext context) => showDialog(
+  Future showAlertDialog(BuildContext context) => showDialog(
         context: context,
-        builder: (_) => CupertinoAlertDialog(
-          content: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("log_out_text".tr),
+        builder: (_) => AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-          actions: [
-            CupertinoDialogAction(
-              child: Text("cancel".tr),
-              onPressed: () => Navigator.pop(context),
-            ),
-            CupertinoDialogAction(
-              child: Text("yes".tr),
-              onPressed: () {
-                LocalSource.getInstance().removeProfile();
-                Get.offAllNamed(Routes.main);
-              },
-            ),
-          ],
+          title: Column(
+            children: [
+              Text(
+                "log_out_text".tr,
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                children: [
+                  MaterialButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: AppUtils.kBorderRadius8,
+                      ),
+                      color: AppColors.white,
+                      child: Text("cancel".tr)),
+                  const Spacer(),
+                  MaterialButton(
+                      onPressed: () {
+                        LocalSource.getInstance().removeProfile();
+                        Get.offAllNamed(Routes.main);
+                      },
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: AppUtils.kBorderRadius8,
+                      ),
+                      color: AppColors.blue,
+                      minWidth: 130,
+                      child: Text(
+                        "yes".tr,
+                        style: AppTextStyles.productDetailButton,
+                      )),
+                ],
+              )
+            ],
+          ),
         ),
       );
-
-  void updateState() {
-    update();
-  }
 }

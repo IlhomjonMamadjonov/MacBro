@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/controller/limited_products_controller.dart';
-import 'package:sample_app_getx/controller/main/home/home_controller.dart';
 import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
-import 'package:sample_app_getx/data/models/limited_product_response.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/loading_widget.dart';
 
-import '../../../../../data/models/categories/category_response.dart';
-import '../../../../../data/models/limited_product_response.dart';
 import '../../../../../routes/app_routes.dart';
 import 'widgets/category_detail_product.dart';
 

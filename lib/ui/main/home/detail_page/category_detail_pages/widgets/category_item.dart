@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/core/theme/app_text_style.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
-import '../../../../../../data/models/categories/category_response.dart';
 import '../../../../../../routes/app_routes.dart';
 
 class CategoryItem extends StatelessWidget {

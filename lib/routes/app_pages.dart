@@ -18,8 +18,7 @@ import 'package:sample_app_getx/ui/main/profile/settings/settings_page.dart';
 import 'package:sample_app_getx/ui/splash/splash_page.dart';
 
 import '../bindings/all_products_bindings.dart';
-import '../bindings/category_detail_binding.dart';
-import '../bindings/category_detail_list_binding.dart';
+import '../bindings/sub_category_bindings.dart';
 import '../ui/main/home/detail_page/category_detail_pages/all_products_page.dart';
 import '../ui/main/home/detail_page/category_detail_pages/limited_products_page.dart';
 import '../ui/main/home/detail_page/category_detail_pages/sub_category_page.dart';

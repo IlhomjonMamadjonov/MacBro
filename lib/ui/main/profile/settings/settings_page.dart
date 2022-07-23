@@ -25,7 +25,7 @@ class SettingsPage extends GetView<SettingsController> {
             actions: [
               IconButton(
                 onPressed: () {
-                  controller.showDialogFunction(context);
+                  controller.showAlertDialog(context);
                 },
                 icon: const Icon(Icons.logout),
               ),
@@ -73,7 +73,7 @@ class SettingsPage extends GetView<SettingsController> {
                           activeColor: AppColors.blue,
                           onChanged: (v) {
                             notif = !notif;
-                            controller.updateState();
+                            controller.update();
                           }),
                     ),
 
@@ -86,7 +86,7 @@ class SettingsPage extends GetView<SettingsController> {
                         activeColor: AppColors.blue,
                         onChanged: (v) {
                           sound = !sound;
-                          controller.updateState();
+                          controller.update();
                         },
                       ),
                     ),

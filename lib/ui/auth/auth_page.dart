@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/route_manager.dart';
 import 'package:sample_app_getx/controller/main/auth/auth_controller.dart';
 import 'package:sample_app_getx/core/custom_widgets/custom_button/custom_button.dart';
 import 'package:sample_app_getx/core/custom_widgets/text_fields/custom_phone_text_field.dart';
