@@ -1,0 +1,66 @@
+name: sample_app_getx
+description: A new Flutter application.
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
+  # GetX state management
+  get: ^4.6.1
+  # local storage
+  get_storage: ^2.0.3
+  # rest api
+  dio: ^4.0.4
+  dio_retry_plus: ^0.0.9
+  # retrofit
+  retrofit: ^3.0.1
+  # chuck
+  chuck_interceptor: ^0.0.8
+  # image svg widget
+  flutter_svg: ^1.0.3
+  #image cache widget
+  cached_network_image: ^3.2.0
+  #google translation
+  translator: ^0.1.7
+  #keyboard dismiss
+  keyboard_dismisser: ^2.0.0
+  #sms auto fill
+  sms_autofill: ^2.2.0
+  #swipe to bottom refresh widget
+  liquid_pull_to_refresh: ^3.0.1
+  #cupertino effect
+  bouncing_widget: ^2.0.0
+  #database
+  floor: ^1.2.0
+  # search bar widget
+  flutter_staggered_grid_view: ^0.6.1
+  # internet connect
+  connectivity_plus: ^2.2.0
+  #For banner indicator
+  smooth_page_indicator: ^1.0.0+2
+  #For banner slider
+  carousel_slider: ^4.0.0
+  #For phone input formatter
+  mask_text_input_formatter: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  retrofit_generator: any
+  floor_generator: ^1.2.0
+  build_runner: ^2.1.7
+  flutter_lints: ^1.0.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/svg/
+    - assets/png/
+    - assets/
