@@ -7,10 +7,11 @@ import 'package:sample_app_getx/data/models/code_generate/code_generate_request.
 import 'package:sample_app_getx/data/models/code_generate/code_generate_response.dart';
 import 'package:sample_app_getx/data/models/passcode_confirm/passcode_confirm_request.dart';
 import 'package:sample_app_getx/data/models/passcode_confirm/passcode_confirm_response.dart';
-import 'package:sample_app_getx/data/models/userme/userme_response.dart';
 import 'package:sample_app_getx/data/provider/api_client.dart';
 import 'package:sample_app_getx/data/provider/response_handler.dart';
 import 'package:sample_app_getx/data/provider/server_error.dart';
+
+import '../../models/user/userme_response.dart';
 
 class AuthRepository extends BaseRepository {
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample_app_getx/controller/main/auth/sms_controller.dart';
 import 'package:sample_app_getx/core/custom_widgets/custom_button/custom_button.dart';
 import 'package:sample_app_getx/core/custom_widgets/loading_widgets/modal_progress_hud.dart';
+import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/routes/app_routes.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class SmsPage extends GetView<SmsController> {
     String passcodeToken = Get.arguments;
     return Scaffold(
         appBar: AppBar(
-          title: Text("login".tr),
+          title: Text("confirmation_code".tr),
           elevation: 0,
         ),
         body: GetBuilder<SmsController>(
@@ -34,8 +35,11 @@ class SmsPage extends GetView<SmsController> {
                       alignment: Alignment.center,
                       height: 136,
                       width: 343,
-                      color: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.white,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:sample_app_getx/controller/main/home/home_controller.dart';
 import 'package:sample_app_getx/core/theme/app_text_style.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
-import 'package:sample_app_getx/ui/main/home/detail_page/category_detail_pages/widgets/category_item.dart';
+
+import '../../category_detail_pages/widgets/category_item.dart';
+
 
 class CategoryLists extends StatelessWidget {
   const CategoryLists({Key? key}) : super(key: key);
@@ -37,11 +39,7 @@ class CategoryLists extends StatelessWidget {
                               crossAxisSpacing: 12,
                               mainAxisSpacing: 12),
                       itemCount: controller.categories.length,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (BuildContext context, index) {
-                        print(controller.categories[index].id,);
-                        print(controller.categories[index].name,);
-                        print(controller.categories[index].image,);
+                      itemBuilder: (context, index) {
                         return CategoryItem(
                             name: controller.categories[index].name,
                             id: controller.categories[index].id,

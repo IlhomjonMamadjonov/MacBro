@@ -2,8 +2,9 @@ import 'package:get/get.dart';
 import 'package:sample_app_getx/base/base_controller.dart';
 import 'package:sample_app_getx/data/data_source/local_source.dart';
 import 'package:sample_app_getx/data/models/customer/customer.dart';
-import 'package:sample_app_getx/data/models/userme/userme_response.dart';
 import 'package:sample_app_getx/data/repository/auth/auth_repository.dart';
+
+import '../../../data/models/user/userme_response.dart';
 
 class ProfileController extends BaseController {
   final AuthRepository authRepository = AuthRepository();
@@ -22,7 +23,6 @@ class ProfileController extends BaseController {
         id: result.id,
         refreshToken: refreshToken,
       ));
-
       return true;
     } else {
       Get.snackbar('error'.tr, result.toString());

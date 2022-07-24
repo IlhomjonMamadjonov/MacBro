@@ -18,9 +18,9 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<BannersResponse> getBanners(limit) async {
+  Future<BannersResponse> getBanners(limit, lang) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'limit': limit};
+    final queryParameters = <String, dynamic>{r'limit': limit, r'lang': lang};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -34,9 +34,9 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<ProductsResponse> getFeaturedProducts() async {
+  Future<ProductsResponse> getFeaturedProducts(lang) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'lang': lang};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -50,9 +50,9 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<CategoryResponse> getCategoryWithProduct(limit, lang) async {
+  Future<CategoryResponse> getCategoryWithProduct(lang) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'limit': limit, r'lang': lang};
+    final queryParameters = <String, dynamic>{r'lang': lang};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(

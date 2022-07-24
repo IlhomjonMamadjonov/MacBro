@@ -57,7 +57,7 @@ class RegistrationPage extends GetView<AuthController> {
                 inputFormatters: [controller.maskFormatter],
                 keyboardType: TextInputType.number,
                 fillColor: AppColors.textfield,
-                controller: controller.registerPhoneController,
+                controller: controller.registerPhoneController
               ),
             ),
           ],

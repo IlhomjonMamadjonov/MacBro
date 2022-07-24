@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/core/custom_widgets/appbars/sample_app_bar.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
-
 import 'package:sample_app_getx/data/data_source/local_source.dart';
 import 'package:sample_app_getx/data/floor/entity/products.dart' as t;
 import 'package:sample_app_getx/data/models/products/products_response.dart';
@@ -25,8 +24,8 @@ class _FavoritePageState extends State<FavoritePage> {
         body: StreamBuilder<List<t.Products>>(
           stream: LocalSource.getInstance().getAllBasketProducts(),
           builder: (_, snapshot) {
-            var ls = snapshot.data;
-            return ls!.isEmpty
+            var list = snapshot.data ?? [];
+            return list.isEmpty
                 ? Center(
                     child: Padding(
                       padding: AppUtils.kAllPadding32,
@@ -34,30 +33,28 @@ class _FavoritePageState extends State<FavoritePage> {
                     ),
                   )
                 : SafeArea(
-                    child: Flexible(
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        physics: const ClampingScrollPhysics(),
-                        padding: const EdgeInsets.all(12),
-                        shrinkWrap: true,
-                        addAutomaticKeepAlives: false,
-                        cacheExtent: 160,
-                        crossAxisSpacing: 12,
-                        childAspectRatio: 0.85,
-                        mainAxisSpacing: 12,
-                        children: List.generate(
-                          ls.length,
-                          (i) {
-                            return ProductItem(
-                              product: Products(
-                                id: ls[i].id,
-                                name: ls[i].name,
-                                image: ls[i].image,
-                                cheapestPrice: int.tryParse(ls[i].price),
-                              ),
-                            );
-                          },
-                        ),
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      physics: const ClampingScrollPhysics(),
+                      padding: const EdgeInsets.all(12),
+                      shrinkWrap: true,
+                      addAutomaticKeepAlives: false,
+                      cacheExtent: 160,
+                      crossAxisSpacing: 12,
+                      childAspectRatio: 0.85,
+                      mainAxisSpacing: 12,
+                      children: List.generate(
+                        list.length,
+                        (i) {
+                          return ProductItem(
+                            product: Products(
+                              id: list[i].id,
+                              name: list[i].name,
+                              image: list[i].image,
+                              cheapestPrice: int.tryParse(list[i].price),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   );

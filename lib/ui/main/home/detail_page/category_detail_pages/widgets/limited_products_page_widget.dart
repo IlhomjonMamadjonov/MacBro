@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sample_app_getx/core/theme/app_colors.dart';
 import '../../../../../../base/base_functions.dart';
 
 class LimitedProductsPageWidget extends StatelessWidget {
-
   const LimitedProductsPageWidget({
     Key? key,
     required this.id,
@@ -12,21 +12,20 @@ class LimitedProductsPageWidget extends StatelessWidget {
     required this.price,
     required this.image,
   }) : super(key: key);
+
   final String? id;
   final String? name;
   final String? image;
   final int? price;
 
-
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: 165.5,
       height: 210,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
+        color: AppColors.white,
       ),
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       child: Column(
@@ -35,11 +34,14 @@ class LimitedProductsPageWidget extends StatelessWidget {
         children: [
           SizedBox(
             height: 96,
-            child: image != null
-                ? CachedNetworkImage(
-              imageUrl: "$image",
-            )
-                : SvgPicture.asset("assets/svg/ic_logo.svg"),
+            child: CachedNetworkImage(
+              imageUrl: image ??
+                  "https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg",
+              placeholder: (ctx, url) => SizedBox(
+                  width: 343,
+                  height: 180,
+                  child: SvgPicture.asset('assets/svg/ic_macbro.svg')),
+            ),
           ),
           const SizedBox(
             height: 8,
@@ -64,10 +66,9 @@ class LimitedProductsPageWidget extends StatelessWidget {
             height: 4,
           ),
           Text(
-            BaseFunctions.moneyFormatSymbol(price ?? 0) + " сум",
+            BaseFunctions.moneyFormatSymbol(price ?? 0),
             style: const TextStyle(
               color: Color(0xFF007AFF),
-
               letterSpacing: -0.24,
               fontWeight: FontWeight.w400,
               fontSize: 15,

@@ -8,10 +8,10 @@ import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/core/theme/app_text_style.dart';
 import 'package:sample_app_getx/data/models/products/products_response.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/banner_widget.dart';
-import 'package:sample_app_getx/ui/main/home/detail_page/category_detail_pages/widgets/category_lists.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/loading_widget.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/product_list_widget.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/search_item.dart';
+import 'detail_page/category_detail_pages/widgets/category_lists.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);

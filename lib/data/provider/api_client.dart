@@ -18,11 +18,11 @@ import 'package:sample_app_getx/data/models/register/register_request.dart';
 import 'package:sample_app_getx/data/models/register/register_response.dart';
 import 'package:sample_app_getx/data/models/search/products_search_response.dart';
 
-import 'package:sample_app_getx/data/models/userme/userme_response.dart';
 import 'package:sample_app_getx/routes/app_routes.dart';
 
 import '../models/limited_product_response.dart';
-import '../models/response_product_variant.dart';
+import '../models/all_product_variants_response.dart';
+import '../models/user/userme_response.dart';
 
 part 'api_client.g.dart';
 
@@ -93,31 +93,33 @@ abstract class ApiClient {
   @GET('banner')
   Future<BannersResponse> getBanners(
     @Query('limit') int limit,
+    @Query('lang') String lang,
   );
 
   //Featured List
   @GET('featured-list/rasprodazha')
-  Future<ProductsResponse> getFeaturedProducts();
+  Future<ProductsResponse> getFeaturedProducts(
+    @Query('lang') String lang,
+  );
 
   /// Category
   @GET('category')
   Future<CategoryResponse> getCategoryWithProduct(
-    @Query('limit') String limit,
     @Query('lang') String lang,
   );
 
   @GET('/product-variant')
   Future<ResponseProductResponse> getProductVariants(
-      @Query('active') bool active,
-      @Query('lang') String lang,
-      @Query('category') String categoryId,
-      @Query('limit') int limit,
-      @Query('page') int page,
-      );
+    @Query('active') bool active,
+    @Query('lang') String lang,
+    @Query('category') String categoryId,
+    @Query('limit') int limit,
+    @Query('page') String page,
+  );
+
   /// Search
   @GET('product')
   Future<ProductsResponsee> getProductSearch(@Query('search') String search);
-
 
   /// LIMITED PRODUCTS
   @GET('product')

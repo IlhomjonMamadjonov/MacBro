@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../base/base_functions.dart';
+import '../../../../../../core/theme/app_colors.dart';
 
 class ItemProductFavouriteWidget extends StatelessWidget {
   final String? id;
@@ -29,54 +31,35 @@ class ItemProductFavouriteWidget extends StatelessWidget {
             height: 164,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Colors.white,
+              color: AppColors.white,
             ),
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Positioned(
                   child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     child: CachedNetworkImage(
                       imageUrl: image ??
                           'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg',
-                      imageBuilder: (context, imageProvider) => Container(
-                        width: 343,
-                        height: 180,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: imageProvider,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
                       placeholder: (context, url) => SizedBox(
                         width: 343,
                         height: 180,
-                        child: Image.asset('assets/png/macbro.png'),
+                        child:SvgPicture.asset('assets/svg/ic_macbro.svg'),
                       ),
                       errorWidget: (_, __, ___) => SizedBox(
                         width: 343,
                         height: 180,
-                        child: Image.asset('assets/png/macbro.png'),
+                        child: SvgPicture.asset('assets/svg/ic_macbro.svg'),
                       ),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                // Positioned(
-                //   top: 8,
-                //   right: 8,
-                // child: LikeBtnWidget(
-                //   id: id,
-                //   name: name,
-                //   image: image,
-                //   price: price,
-                // ),
-                // ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Column(
@@ -93,7 +76,7 @@ class ItemProductFavouriteWidget extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               Text(
-                BaseFunctions.moneyFormatSymbol(price!) + " сум",
+                BaseFunctions.moneyFormatSymbol(price!),
                 style: const TextStyle(
                   color: Color(0xFF007AFF),
                   letterSpacing: -0.2,

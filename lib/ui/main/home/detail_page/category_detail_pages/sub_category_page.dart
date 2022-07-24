@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/controller/main/home/home_controller.dart';
-import 'package:sample_app_getx/ui/main/home/detail_page/category_detail_pages/widgets/category_detail.dart';
 import '../../../../../data/models/categories/category_response.dart';
+import '../category_detail_pages/widgets/item_subcategory_widget.dart';
 
 class SubCategoryPage extends GetView<HomeController> {
   const SubCategoryPage({Key? key}) : super(key: key);

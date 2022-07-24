@@ -117,6 +117,7 @@ class SettingsController extends BaseController {
                       onPressed: () {
                         Get.back();
                       },
+                      minWidth: 120,
                       shape: const RoundedRectangleBorder(
                         borderRadius: AppUtils.kBorderRadius8,
                       ),

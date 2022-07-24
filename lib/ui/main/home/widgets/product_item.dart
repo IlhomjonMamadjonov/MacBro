@@ -26,7 +26,6 @@ class ProductItem extends StatefulWidget {
 class _ProductItemState extends State<ProductItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  final bool _showPrice = false;
 
   @override
   void initState() {
@@ -76,35 +75,31 @@ class _ProductItemState extends State<ProductItem>
                 Container(
                   height: 160.0,
                   decoration: const BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius:AppUtils.kBorderRadius12),
-
+                      color: AppColors.white,
+                      borderRadius: AppUtils.kBorderRadius12),
                   child: Stack(
                     children: [
                       ///product image
                       Positioned.fill(
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 12),
-                          child: Hero(
-                            tag: widget.product?.slug ?? '',
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(12),
-                                topRight: Radius.circular(12),
-                              ),
-                              child: CachedNetworkImage(
-                                  fit: BoxFit.contain,
-                                  errorWidget: (_, url, l) => const Center(
-                                        child: CustomPaint(
-                                          painter: IconLogoPainter(
-                                            color: AppColors.black,
-                                          ),
-                                          size: Size(80, 80),
-                                        ),
-                                      ),
-                                  placeholder: (_, e) => const LoadingWidget(),
-                                  imageUrl: widget.product?.image ?? ''),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
+                            child: CachedNetworkImage(
+                                fit: BoxFit.contain,
+                                errorWidget: (_, url, l) => const Center(
+                                      child: CustomPaint(
+                                        painter: IconLogoPainter(
+                                          color: AppColors.black,
+                                        ),
+                                        size: Size(80, 80),
+                                      ),
+                                    ),
+                                placeholder: (_, e) => const LoadingWidget(),
+                                imageUrl: widget.product?.image ?? ''),
                           ),
                         ),
                       ),
@@ -113,35 +108,8 @@ class _ProductItemState extends State<ProductItem>
                           color: Colors.transparent,
                           child: InkWell(
                             borderRadius: BorderRadius.circular(12),
-                            onTap: () {
-                              // Get.toNamed(
-                              //   Routes.assembly,
-                              //   arguments: widget.product!.id,
-                              // );
-                            },
+                            onTap: () {},
                           ),
-                        ),
-                      ),
-
-                      ///show hide animation widget
-                      Positioned.fill(
-                        child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 200),
-                          child: basketProducts != null && _showPrice
-                              ? Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(12),
-                                    ),
-                                    color: AppColors.black.withOpacity(0.4),
-                                  ),
-                                  width: double.infinity,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [],
-                                  ),
-                                )
-                              : const SizedBox.shrink(),
                         ),
                       ),
 
@@ -180,7 +148,7 @@ class _ProductItemState extends State<ProductItem>
                             backgroundColor: Colors.grey.withOpacity(0.2),
                             child: SvgPicture.asset(
                               "assets/svg/ic_like.svg",
-                              color: isBasket ? Colors.red : Colors.grey,
+                              color: isBasket ? AppColors.blue : AppColors.grey,
                             ),
                           ),
                         ),
