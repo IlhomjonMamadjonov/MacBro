@@ -9,7 +9,7 @@ class SplashController extends BaseController {
     await Future.delayed(
       const Duration(milliseconds: 1500),
       () {
-        Get.toNamed(Routes.main);
+        Get.offAllNamed(Routes.main);
       },
     );
   }
