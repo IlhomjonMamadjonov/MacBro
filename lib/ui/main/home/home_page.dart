@@ -39,7 +39,7 @@ class HomePage extends GetView<HomeController> {
           textStyle: AppTextStyles.searchItem,
           searchBarPadding: const EdgeInsets.all(12),
           cancellationWidget: Text(
-            'cancell'.tr,
+            'cancel'.tr,
             maxLines: 1,
             style: AppTextStyles.searchItem,
             textAlign: TextAlign.center,
