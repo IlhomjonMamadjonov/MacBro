@@ -2,24 +2,126 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'app_colors.dart';
+import 'app_text_style.dart';
 
-final ThemeData appThemeData = ThemeData(
-  primaryColor: Colors.white,
-  appBarTheme: const AppBarTheme(
+class AppThemes {
+  AppThemes._();
+
+  static final ThemeData light = ThemeData(
+    canvasColor: Colors.transparent,
+    primaryColor: AppColors.assets,
+    scaffoldBackgroundColor: AppColors.background,
+    backgroundColor: AppColors.background,
+    cardColor: AppColors.background,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    colorScheme: const ColorScheme(
+      primary: AppColors.assets,
+      secondary: AppColors.white,
+      surface: Colors.transparent,
+      background: AppColors.background,
+      error: AppColors.red,
+      onPrimary: AppColors.assets,
+      onSecondary: AppColors.assets,
+      onSurface: AppColors.assets,
+      onBackground: AppColors.background,
+      onError: AppColors.assets,
+      brightness: Brightness.light,
+    ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      },
+    ),
+    appBarTheme: const AppBarTheme(
+      elevation: 1,
       centerTitle: true,
-      iconTheme: IconThemeData(color: Colors.black),
-      color: Colors.white,
-      elevation: 0.5,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.transparent,
+        // ios
+        statusBarBrightness: Brightness.light,
+        // android
         statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: Brightness.dark,
       ),
-      titleTextStyle: TextStyle(
-          color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.w600)),
-  scaffoldBackgroundColor: AppColors.background,
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+      titleTextStyle: AppTextStyles.appBarTitle,
+      color: AppColors.white,
+    ),
+    textTheme: const TextTheme(
+      bodyText1: TextStyle(
+        color: AppColors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 17,
+      ),
+      bodyText2: TextStyle(
+        color: AppColors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 17,
+      ),
+    ),
+    fontFamily: 'SFPro',
+  );
 
-  // fontFamily: 'Georgia',
-  textTheme: const TextTheme(
-    headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-  ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.assets),
-);
+  static final ThemeData dark = ThemeData(
+    canvasColor: Colors.transparent,
+    primaryColor: AppColors.assets,
+    scaffoldBackgroundColor: AppColors.background,
+    backgroundColor: AppColors.background,
+    cardColor: AppColors.background,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    colorScheme: const ColorScheme(
+      primary: AppColors.assets,
+      secondary: AppColors.white,
+      surface: Colors.transparent,
+      background: AppColors.background,
+      error: AppColors.red,
+      onPrimary: AppColors.assets,
+      onSecondary: AppColors.assets,
+      onSurface: AppColors.assets,
+      onBackground: AppColors.background,
+      onError: AppColors.assets,
+      brightness: Brightness.light,
+    ),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      },
+    ),
+    appBarTheme: const AppBarTheme(
+      elevation: 1,
+      centerTitle: true,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.transparent,
+        // ios
+        statusBarBrightness: Brightness.light,
+        // android
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+      titleTextStyle: AppTextStyles.appBarTitle,
+      color: AppColors.white,
+    ),
+    textTheme: const TextTheme(
+      bodyText1: TextStyle(
+        color: AppColors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 17,
+      ),
+      bodyText2: TextStyle(
+        color: AppColors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 17,
+      ),
+    ),
+    fontFamily: 'SFPro',
+  );
+}

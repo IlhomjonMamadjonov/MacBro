@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:sample_app_getx/controller/all_products_controller.dart';
+import 'package:sample_app_getx/controller/main/category/all_products_controller.dart';
 class AllProductsBinding extends Bindings {
   @override
   void dependencies() {

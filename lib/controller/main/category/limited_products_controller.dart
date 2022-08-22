@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 import 'package:sample_app_getx/base/base_controller.dart';
 import 'package:sample_app_getx/data/provider/api_client.dart';
 
-import '../data/data_source/local_source.dart';
-import '../data/models/limited_product_response.dart';
-import '../data/repository/home/home_repository.dart';
+import '../../../data/data_source/local_source.dart';
+import '../../../data/models/limited_product_response.dart';
+import '../../../data/repository/home/home_repository.dart';
 
 class LimitedProductsController extends BaseController
     with GetSingleTickerProviderStateMixin {

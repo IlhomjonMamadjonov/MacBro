@@ -9,5 +9,7 @@ class Constants {
   static const authUrl = 'https://api.auth.macbro.uz/v1/';
   static const androidPlatformID = "6bd7c2e3-d35e-47df-93ce-ed54ed53f95f";
   static const platformId = "7d4a4c38-dd84-4902-b744-0488b80a4c03";
+  static const clientTypeId = "5a3818a9-90f0-44e9-a053-3be0ba1e2c07";
+  static const roleId = "a1ca1301-4da9-424d-a9e2-578ae6dcde07";
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 }

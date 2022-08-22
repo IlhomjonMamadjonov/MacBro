@@ -39,7 +39,7 @@ class HomePage extends GetView<HomeController> {
           textStyle: AppTextStyles.searchItem,
           searchBarPadding: const EdgeInsets.all(12),
           cancellationWidget: Text(
-            'cancel'.tr,
+            'cancell'.tr,
             maxLines: 1,
             style: AppTextStyles.searchItem,
             textAlign: TextAlign.center,
@@ -65,7 +65,6 @@ class HomePage extends GetView<HomeController> {
                                 childCount: 1,
                               ),
                             ),
-
                             const ProductListWidget(),
                             const CategoryLists(),
                           ],

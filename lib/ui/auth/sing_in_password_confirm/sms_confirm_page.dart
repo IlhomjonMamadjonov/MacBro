@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app_getx/controller/main/auth/auth_controller.dart';
 import 'package:sample_app_getx/controller/main/auth/sms_controller.dart';
 import 'package:sample_app_getx/core/custom_widgets/custom_button/custom_button.dart';
 import 'package:sample_app_getx/core/custom_widgets/loading_widgets/modal_progress_hud.dart';
@@ -8,20 +9,21 @@ import 'package:sms_autofill/sms_autofill.dart';
 import 'package:get/get.dart';
 
 class SmsPage extends GetView<SmsController> {
-  SmsPage({Key? key}) : super(key: key);
   String code = "";
   bool button = false;
-
+  String? passcodeToken;
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
+  SmsPage({Key? key, this.passcodeToken, this.phoneNumber, this.firstName, this.lastName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    String passcodeToken = Get.arguments;
     return Scaffold(
         appBar: AppBar(
           title: Text("confirmation_code".tr),
           elevation: 0,
         ),
         body: GetBuilder<SmsController>(
-          // initState: (_) {},
           builder: (controller) {
             return ModalProgressHUD(
               inAsyncCall: controller.isLoading,
@@ -63,8 +65,8 @@ class SmsPage extends GetView<SmsController> {
                                 button = true;
                                 FocusScope.of(context)
                                     .requestFocus(FocusNode());
-                                final result =
-                                    await controller.passCodeConfirm(passcodeToken);
+                                final result = await controller
+                                    .passCodeConfirm(passcodeToken!);
                                 if (result) {
                                   Get.offAllNamed(Routes.main);
                                 } else {
@@ -86,7 +88,15 @@ class SmsPage extends GetView<SmsController> {
                       onTap: () async {
                         if (button) {
                           final result =
-                              await controller.passCodeConfirm(passcodeToken);
+                              await controller.passCodeConfirm(passcodeToken!);
+                          if (Get.find<AuthController>().registering) {
+                            await controller.createUser(
+                              firstName!,
+                              lastName!,
+                              phoneNumber!,
+                              passcodeToken,
+                            );
+                          }
                           if (result) {
                             Get.offAllNamed(Routes.main);
                           } else {

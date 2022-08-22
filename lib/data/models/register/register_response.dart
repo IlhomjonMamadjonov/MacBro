@@ -1,12 +1,12 @@
-class RegistrResponse {
+class RegisterResponse {
   int? code;
   String? message;
   Null? error;
   String? data;
 
-  RegistrResponse({this.code, this.message, this.error, this.data});
+  RegisterResponse({this.code, this.message, this.error, this.data});
 
-  RegistrResponse.fromJson(Map<String, dynamic> json) {
+  RegisterResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     message = json['message'];
     error = json['error'];

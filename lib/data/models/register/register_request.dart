@@ -1,12 +1,12 @@
-class RegistrRequest {
+class RegisterRequest {
   String? clientTypeId;
-  Null? email;
-  Null? login;
-  Null? password;
+  String? email;
+  String? login;
+  String? password;
   String? phone;
   String? roleId;
 
-  RegistrRequest(
+  RegisterRequest(
       {this.clientTypeId,
       this.email,
       this.login,
@@ -14,7 +14,7 @@ class RegistrRequest {
       this.phone,
       this.roleId});
 
-  RegistrRequest.fromJson(Map<String, dynamic> json) {
+  RegisterRequest.fromJson(Map<String, dynamic> json) {
     clientTypeId = json['client_type_id'];
     email = json['email'];
     login = json['login'];

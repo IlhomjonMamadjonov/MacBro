@@ -11,10 +11,13 @@ import 'package:sample_app_getx/data/provider/api_client.dart';
 import 'package:sample_app_getx/data/provider/response_handler.dart';
 import 'package:sample_app_getx/data/provider/server_error.dart';
 
+import '../../models/auth/user_request.dart';
+import '../../models/auth/user_response.dart';
+import '../../models/register/register_request.dart';
+import '../../models/register/register_response.dart';
 import '../../models/user/userme_response.dart';
 
 class AuthRepository extends BaseRepository {
-
   ApiClient authClient = ApiClient.getInstanceAuth(baseUrl: Constants.authUrl);
 
   ApiClient client = ApiClient.getInstance(baseUrl: Constants.baseUrl);
@@ -45,7 +48,7 @@ class AuthRepository extends BaseRepository {
     }
   }
 
-// ////
+///////
 
   Future<ResponseHandler<AuthResponse>> _fetchAuth2({
     required AuthRequest2 username,
@@ -161,6 +164,61 @@ class AuthRepository extends BaseRepository {
     } else if (response.getException()?.getErrorMessage() != "Canceled") {
       return await getErrorMessage(
           response.getException()?.getErrorMessage() ?? '');
+    }
+  }
+
+  // UserGenerate
+  Future<ResponseHandler<RegisterResponse>> _fetchUserRegister(
+      {required RegisterRequest userRegisterRequest}) async {
+    RegisterResponse response;
+    try {
+      response = await authClient.userRegister(userRegisterRequest);
+    } catch (error, stacktrace) {
+      debugPrint("Exception occurred: $error stacktrace: $stacktrace");
+      return ResponseHandler()
+        ..setException(ServerError.withError(error: error as DioError));
+    }
+    return ResponseHandler()..data = response;
+  }
+
+  Future<dynamic> userRegister(
+      {required RegisterRequest userRegisterRequest}) async {
+    final response =
+        await _fetchUserRegister(userRegisterRequest: userRegisterRequest);
+    if (response.data != null) {
+      return response.data;
+    } else if (response.getException()?.getErrorMessage() != "Canceled") {
+      return await getErrorMessage(
+        response.getException()?.getErrorMessage() ?? '',
+      );
+    }
+  }
+
+  /// Create User
+  Future<ResponseHandler<UserResponse>> _fetchCreateUser(
+      {required String? auth, required UserRequest userRequest}) async {
+    UserResponse response;
+    try {
+      response =
+          await client.createUser(Constants.platformId, auth!, userRequest);
+    } catch (error, stacktrace) {
+      debugPrint("Exception occurred: $error stacktrace: $stacktrace");
+      return ResponseHandler()
+        ..setException(ServerError.withError(error: error as DioError));
+    }
+    return ResponseHandler()..data = response;
+  }
+
+  Future<dynamic> createUser(
+      {required String? auth, required UserRequest userRequest}) async {
+    final response =
+        await _fetchCreateUser(auth: auth, userRequest: userRequest);
+    if (response.data != null) {
+      return response.data;
+    } else if (response.getException()?.getErrorMessage() != "Canceled") {
+      return await getErrorMessage(
+        response.getException()?.getErrorMessage() ?? '',
+      );
     }
   }
 }

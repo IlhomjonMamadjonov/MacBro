@@ -32,12 +32,16 @@ class HomeController extends BaseController
 
   @override
   void onReady() async {
+    load();
+    super.onReady();
+  }
+
+  Future<void> load() async {
     setLoading(true);
     await getBanners();
     await getCategory();
     await getFeaturedProducts();
     setLoading(false);
-    super.onReady();
   }
 
   void updateActiveIndex(int index) {

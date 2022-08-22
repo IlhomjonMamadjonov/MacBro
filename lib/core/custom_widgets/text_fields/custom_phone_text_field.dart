@@ -131,7 +131,7 @@ class _CustomPhoneTextFieldState extends State<CustomPhoneTextField> {
                 const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
             child: TextFormField(
               validator: (value) {
-                if (value == null || value.length < 9) {
+                if (value == null || value.length < 13) {
                   return "Raqam notog'ri kiritildi";
                 } else {
                   return null;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/controller/splash/splash_controller.dart';
 import 'package:sample_app_getx/core/theme/app_colors.dart';
+import 'package:sample_app_getx/core/theme/app_text_style.dart';
 
 class SplashPage extends GetView<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SplashPage extends GetView<SplashController> {
               children: [
                 TextSpan(
                   text: '\nFor clients',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                  style: AppTextStyles.appBarTitle,
                 ),
               ],
             ),

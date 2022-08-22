@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       gestures: const [GestureType.onTap],
       child: GetMaterialApp(
         navigatorKey: Constants.navigatorKey,
-        theme: appThemeData,
+        theme: AppThemes.light,
         debugShowCheckedModeBanner: false,
         initialBinding: SplashBindings(),
         initialRoute: Routes.initial,

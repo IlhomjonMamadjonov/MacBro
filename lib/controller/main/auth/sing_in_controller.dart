@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:sample_app_getx/base/base_controller.dart';
+import 'package:sample_app_getx/core/constants/constants.dart';
 import 'package:sample_app_getx/data/data_source/local_source.dart';
 import 'package:sample_app_getx/data/models/auth/login_model.dart';
 import 'package:sample_app_getx/data/models/code_generate/code_generate_request.dart';
@@ -31,11 +32,9 @@ class SingInController extends BaseController
       if (result.exists ?? false) {
         final String _result = await postPhoneNumber2(phoneNumber);
         setLoading(false);
-
         return _result;
       } else {
         setLoading(false);
-
         return "";
       }
     } else {
@@ -52,7 +51,7 @@ class SingInController extends BaseController
     if (result is AuthResponse) {
       if (result.exists ?? false) {
         final String _result = await passCodeGenerate(
-            phoneNumber, "5a3818a9-90f0-44e9-a053-3be0ba1e2c07", "ahqCTxXquk3");
+            phoneNumber, Constants.clientTypeId, "ahqCTxXquk3");
         ///Passcode generation
         return _result;
       } else {
@@ -74,11 +73,7 @@ class SingInController extends BaseController
     if (result is GenerateResponse) {
       token = result.data?.passcodeToken ?? '';
       localSource?.setAccessToken(result.data?.passcodeToken);
-      // print(
-      //     'passcodeToken ${localSource?.setAccesToken(result.data?.passcodeToken)}');
-
       update();
-
       return result.data?.passcodeToken ?? "";
     } else {
       Get.snackbar('error'.tr, result.toString());

@@ -7,6 +7,7 @@ import 'package:sample_app_getx/core/custom_widgets/text_fields/custom_phone_tex
 import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
 import 'package:sample_app_getx/routes/app_routes.dart';
+import 'package:sample_app_getx/ui/auth/sing_in_password_confirm/sms_confirm_page.dart';
 
 class SignInPage extends GetView<SingInController> {
   const SignInPage({Key? key}) : super(key: key);
@@ -20,7 +21,6 @@ class SignInPage extends GetView<SingInController> {
         title: Text("login".tr),
       ),
       body: GetBuilder<SingInController>(
-        // initState: (_) {},
         builder: (controller) {
           return ModalProgressHUD(
             inAsyncCall: controller.isLoading,
@@ -29,7 +29,6 @@ class SignInPage extends GetView<SingInController> {
               child: Column(
                 children: [
                   AppUtils.kBoxHeight16,
-
                   // number
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -59,7 +58,9 @@ class SignInPage extends GetView<SingInController> {
                           );
                           if (result == null) {
                           } else if (result.isNotEmpty) {
-                            Get.toNamed(Routes.sms, arguments: result);
+                            Get.to(SmsPage(
+                              passcodeToken: controller.token,
+                            ));
                           } else {
                             Get.toNamed(Routes.auth);
                           }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/ui/main/home/detail_page/category_detail_pages/widgets/item_product_favourite.dart';
 import 'package:sample_app_getx/ui/main/home/widgets/loading_widget.dart';
-import '../../../../../controller/all_products_controller.dart';
+import '../../../../../controller/main/category/all_products_controller.dart';
 
 class AllProductsPage extends GetView<AllProductsController> {
   const AllProductsPage({Key? key}) : super(key: key);

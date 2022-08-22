@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
-import '../controller/limited_products_controller.dart';
+import '../controller/main/category/limited_products_controller.dart';
+
 
 class LimitedProductsBinding extends Bindings{
   @override

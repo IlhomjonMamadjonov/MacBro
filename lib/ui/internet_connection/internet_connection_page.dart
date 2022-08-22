@@ -57,10 +57,10 @@ class _InternetConnectionPageState extends State<InternetConnectionPage> {
                 width: Get.width * 306 / 375,
               ),
             ),
-            Text('internet_title'.tr, style: AppTextStyles.noInternetTitle),
+            Text('no_internet_access'.tr, style: AppTextStyles.noInternetTitle),
             const SizedBox(height: 12),
             Text(
-              'internet_subtitle'.tr,
+              'check_your_internet_connection'.tr,
               style: AppTextStyles.noInternetSubTitle,
             ),
           ],

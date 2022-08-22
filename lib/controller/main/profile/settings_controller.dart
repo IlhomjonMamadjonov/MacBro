@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sample_app_getx/base/base_controller.dart';
+import 'package:sample_app_getx/controller/main/home/home_controller.dart';
 import 'package:sample_app_getx/core/theme/app_colors.dart';
 import 'package:sample_app_getx/core/theme/app_text_style.dart';
 import 'package:sample_app_getx/core/theme/app_utils.dart';
@@ -37,7 +38,6 @@ class SettingsController extends BaseController {
                       await Get.updateLocale(const Locale('ru'));
                       await LocalSource.getInstance().setLocale('ru');
                       update();
-
                       Get.back();
                     },
                     title: const Text(

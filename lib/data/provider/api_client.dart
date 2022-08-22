@@ -20,6 +20,9 @@ import 'package:sample_app_getx/data/models/search/products_search_response.dart
 
 import 'package:sample_app_getx/routes/app_routes.dart';
 
+import '../../base/base_functions.dart';
+import '../models/auth/user_request.dart';
+import '../models/auth/user_response.dart';
 import '../models/limited_product_response.dart';
 import '../models/all_product_variants_response.dart';
 import '../models/user/userme_response.dart';
@@ -137,6 +140,12 @@ abstract class ApiClient {
   @POST('user/exists')
   Future<AuthResponse> postPhoneNumber2(@Body() AuthRequest2 request);
 
+  ///Auth
+  @POST('auth/user/register')
+  Future<RegisterResponse> userRegister(
+    @Body() RegisterRequest registerRequest,
+  );
+
   /// Auth
   @POST('auth/passcode/generate')
   Future<GenerateResponse> passCodeGenerate(
@@ -151,15 +160,16 @@ abstract class ApiClient {
     @Header("platform-id") platformId,
   );
 
-  ///Auth
-  @POST('auth/user/register')
-  Future<RegistrResponse> userregister(
-    @Body() RegistrRequest clientTypeId,
-  );
-
   @GET('user/me')
   Future<UserMeResponse> userMe(
     @Header('Authorization') authorization,
     @Header('platform-id') platformId,
+  );
+
+  @POST('user')
+  Future<UserResponse> createUser(
+    @Header('platform-id') String platformId,
+    @Header('authorization') String auth,
+    @Body() UserRequest userRequest,
   );
 }

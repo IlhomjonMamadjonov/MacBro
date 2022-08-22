@@ -1,15 +1,13 @@
 class GenerateResponse {
   int? code;
   String? message;
-  Null? error;
   Data? data;
 
-  GenerateResponse({this.code, this.message, this.error, this.data});
+  GenerateResponse({this.code, this.message, this.data});
 
   GenerateResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     message = json['message'];
-    error = json['error'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -17,7 +15,6 @@ class GenerateResponse {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['code'] = code;
     data['message'] = message;
-    data['error'] = error;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -47,7 +44,6 @@ class Data {
         ? ClientType.fromJson(json['client_type'])
         : null;
     user = json['user'] != null ? User.fromJson(json['user']) : null;
-    // userSessions = json['user_sessions'];
     passcodeToken = json['passcode_token'];
     period = json['period'];
   }
