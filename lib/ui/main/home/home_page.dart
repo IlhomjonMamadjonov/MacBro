@@ -68,7 +68,7 @@ class HomePage extends GetView<HomeController> {
                             const ProductListWidget(),
                             const CategoryLists(),
                           ],
-                          physics: const BouncingScrollPhysics(),
+                          // physics: const BouncingScrollPhysics(),
                         ),
                       ),
                     ],

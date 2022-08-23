@@ -37,8 +37,8 @@ class HomeController extends BaseController
   }
 
   Future<void> load() async {
-    lang = LocalSource.getInstance().getLocale();
     setLoading(true);
+    lang = LocalSource.getInstance().getLocale();
     await getBanners();
     await getCategory();
     await getFeaturedProducts();
