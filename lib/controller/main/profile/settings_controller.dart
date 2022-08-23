@@ -37,6 +37,7 @@ class SettingsController extends BaseController {
                     onTap: () async {
                       await Get.updateLocale(const Locale('ru'));
                       await LocalSource.getInstance().setLocale('ru');
+                      Get.find<HomeController>().load();
                       update();
                       Get.back();
                     },
@@ -59,6 +60,7 @@ class SettingsController extends BaseController {
                     onTap: () async {
                       await Get.updateLocale(const Locale('uz'));
                       await LocalSource.getInstance().setLocale('uz');
+                      Get.find<HomeController>().load();
                       update();
                       Get.back();
                     },
@@ -81,6 +83,7 @@ class SettingsController extends BaseController {
                     onTap: () async {
                       await Get.updateLocale(const Locale('en'));
                       await LocalSource.getInstance().setLocale('en');
+                      Get.find<HomeController>().load();
                       update();
                       Get.back();
                     },

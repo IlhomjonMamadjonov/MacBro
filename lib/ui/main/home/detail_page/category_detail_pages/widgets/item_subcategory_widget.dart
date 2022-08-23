@@ -16,7 +16,6 @@ class ItemSubCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print(id);
         Get.toNamed(Routes.limitedProductsPage, arguments: [id, name]);
       },
       borderRadius: AppUtils.kBorderRadius8,
