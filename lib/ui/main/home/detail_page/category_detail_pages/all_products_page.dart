@@ -32,7 +32,7 @@ class AllProductsPage extends GetView<AllProductsController> {
                   itemCount: controller.allProductVariants.length,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 200,
-                    childAspectRatio: 1 / 1.35,
+                    childAspectRatio: 1 / 1.4,
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
                   ),

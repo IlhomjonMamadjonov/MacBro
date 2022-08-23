@@ -22,6 +22,7 @@ class SubCategoryPage extends GetView<HomeController> {
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
+              childAspectRatio: 1/1.1,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12),
           itemBuilder: (context, index) {

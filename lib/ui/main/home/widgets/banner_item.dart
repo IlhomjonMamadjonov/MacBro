@@ -13,10 +13,10 @@ class BannerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Ink(
       width: 343,
       height: 180,
-      margin: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color:  AppColors.white,

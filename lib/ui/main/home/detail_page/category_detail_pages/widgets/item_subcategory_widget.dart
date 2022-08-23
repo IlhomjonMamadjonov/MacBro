@@ -14,7 +14,6 @@ class ItemSubCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
     return InkWell(
       onTap: () {
         print(id);

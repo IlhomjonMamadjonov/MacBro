@@ -8,6 +8,7 @@ class AppThemes {
   AppThemes._();
 
   static final ThemeData light = ThemeData(
+    useMaterial3: true,
     canvasColor: Colors.transparent,
     primaryColor: AppColors.assets,
     scaffoldBackgroundColor: AppColors.background,
@@ -67,6 +68,7 @@ class AppThemes {
   );
 
   static final ThemeData dark = ThemeData(
+    useMaterial3: true,
     canvasColor: Colors.transparent,
     primaryColor: AppColors.assets,
     scaffoldBackgroundColor: AppColors.background,

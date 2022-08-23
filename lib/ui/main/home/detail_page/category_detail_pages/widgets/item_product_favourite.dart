@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sample_app_getx/core/theme/app_utils.dart';
 
 import '../../../../../../base/base_functions.dart';
 import '../../../../../../core/theme/app_colors.dart';
@@ -27,36 +28,44 @@ class ItemProductFavouriteWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            height: 164,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: AppColors.white,
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                    child: CachedNetworkImage(
-                      imageUrl: image ??
-                          'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg',
-                      placeholder: (context, url) => SizedBox(
-                        width: 343,
-                        height: 180,
-                        child:SvgPicture.asset('assets/svg/ic_macbro.svg'),
+          InkWell(
+            onTap: () {},
+            borderRadius: AppUtils.kBorderRadius8,
+            child: Ink(
+              height: 164,
+              decoration: const BoxDecoration(
+                borderRadius: AppUtils.kBorderRadius8,
+                color: AppColors.white,
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 12),
+                      child: CachedNetworkImage(
+                        imageUrl: image ??
+                            'https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg',
+                        placeholder: (context, url) => SizedBox(
+                          width: 343,
+                          height: 180,
+                          child: SvgPicture.asset('assets/svg/ic_macbro.svg'),
+                        ),
+                        errorWidget: (_, __, ___) => SizedBox(
+                          width: 343,
+                          height: 180,
+                          child: SvgPicture.asset('assets/svg/ic_macbro.svg'),
+                        ),
+                        imageBuilder: (ctx, img) {
+                          return Ink.image(image: img);
+                        },
+                        fit: BoxFit.cover,
                       ),
-                      errorWidget: (_, __, ___) => SizedBox(
-                        width: 343,
-                        height: 180,
-                        child: SvgPicture.asset('assets/svg/ic_macbro.svg'),
-                      ),
-                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           const SizedBox(

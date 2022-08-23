@@ -36,6 +36,7 @@ class CategoryLists extends StatelessWidget {
                       gridDelegate:
                           const SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 200,
+                              childAspectRatio: 0.99,
                               crossAxisSpacing: 12,
                               mainAxisSpacing: 12),
                       itemCount: controller.categories.length,
